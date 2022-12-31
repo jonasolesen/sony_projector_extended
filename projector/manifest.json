@@ -1,0 +1,17 @@
+{
+  "domain": "sony_projector_extended",
+  "name": "Sony Projector",
+  "version": "0.1.0",
+  "config_flow": true,
+  "requirements": [
+    "pysdcp==1"
+  ],
+  "ssdp": [],
+  "zeroconf": [],
+  "homekit": {},
+  "codeowners": [
+    "@jonasolesen"
+  ],
+  "iot_class": "local_polling",
+  "loggers": ["pysdcp"]
+}
