@@ -6,12 +6,14 @@
   "requirements": [
     "pysdcp==1"
   ],
-  "ssdp": [],
-  "zeroconf": [],
-  "homekit": {},
+  "documentation": "https://github.com/jonasolesen/sony_projector_extended",
+  "dependencies": [],
+  "issue_tracker": "https://github.com/jonasolesen/sony_projector_extended/issues",
   "codeowners": [
     "@jonasolesen"
   ],
   "iot_class": "local_polling",
-  "loggers": ["pysdcp"]
+  "loggers": [
+    "pysdcp"
+  ]
 }
