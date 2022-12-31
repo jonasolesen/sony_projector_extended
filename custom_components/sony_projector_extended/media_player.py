@@ -8,7 +8,7 @@ from pysdcp import Projector, ACTIONS, COMMANDS
 
 from . import DOMAIN
 from .const import DEFAULT_SOURCES
-from .select import CalibrationPresetSelect, AspectRatioSelect
+from .select import UpdatableSelect
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -44,7 +44,7 @@ class SonyProjectorMediaPlayer(MediaPlayerEntity):
             name: str,
             unique_id: str | None,
             entry: ConfigEntry,
-            selects: list[CalibrationPresetSelect | AspectRatioSelect]
+            selects: list[UpdatableSelect]
     ) -> None:
         self._projector = projector
         self._entry = entry
@@ -101,10 +101,3 @@ class SonyProjectorMediaPlayer(MediaPlayerEntity):
         """Select input source."""
         selected_source = DEFAULT_SOURCES[source]
         self._projector._send_command(ACTIONS["SET"], COMMANDS["INPUT"], selected_source)
-
-    # @property
-    # def extra_state_attributes(self) -> dict[str, str]:
-    #     """Return device specific state attributes."""
-    #     if self._cmode is None:
-    #         return {}
-    #     return {ATTR_CMODE: self._cmode}

@@ -1,4 +1,5 @@
 import logging
+from abc import abstractmethod
 
 from homeassistant.components.select import SelectEntity
 from homeassistant.config_entries import ConfigEntry
@@ -17,7 +18,7 @@ async def async_setup_entry(
         async_add_entities: AddEntitiesCallback,
 ) -> None:
     projector: Projector = hass.data[DOMAIN][config_entry.entry_id]
-    entities: list[SelectEntity] = [
+    entities: list[UpdatableSelect] = [
         AspectRatioSelect(
             projector=projector,
             name=f"{config_entry.title} - Aspect ratio",
@@ -33,7 +34,17 @@ async def async_setup_entry(
     async_add_entities(entities, True)
 
 
-class AspectRatioSelect(SelectEntity):
+class UpdatableSelect(SelectEntity):
+    @abstractmethod
+    def select_option(self, option: str) -> None:
+        pass
+
+    @abstractmethod
+    def update(self) -> str | None:
+        pass
+
+
+class AspectRatioSelect(UpdatableSelect):
     _attr_icon = "mdi:aspect-ratio"
 
     def __init__(self, projector: Projector, unique_id: str, name: str) -> None:
@@ -67,7 +78,7 @@ class AspectRatioSelect(SelectEntity):
             _LOGGER.error('Could not set aspect ratio')
 
 
-class CalibrationPresetSelect(SelectEntity):
+class CalibrationPresetSelect(UpdatableSelect):
     _attr_icon = "mdi:panorama-outline"
 
     def __init__(self, projector: Projector, unique_id: str, name: str) -> None:
