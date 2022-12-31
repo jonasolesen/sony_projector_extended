@@ -6,9 +6,9 @@ from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from pysdcp import Projector, ACTIONS, COMMANDS
 
-from custom_components.sony_projector_extended import DOMAIN
-from custom_components.sony_projector_extended.const import DEFAULT_SOURCES
-from custom_components.sony_projector_extended.select import CalibrationPresetSelect, AspectRatioSelect
+from . import DOMAIN
+from .const import DEFAULT_SOURCES
+from .select import CalibrationPresetSelect, AspectRatioSelect
 
 _LOGGER = logging.getLogger(__name__)
 
