@@ -1,13 +1,14 @@
 import logging
 
-from pysdcp import Projector, ACTIONS, COMMANDS
-
 from homeassistant.components.media_player import MediaPlayerEntity, MediaPlayerEntityFeature, MediaPlayerState
-from homeassistant.components.sony_projector_extended.const import DEFAULT_SOURCES, DOMAIN
-from homeassistant.components.sony_projector_extended.select import CalibrationPresetSelect, AspectRatioSelect
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
+from pysdcp import Projector, ACTIONS, COMMANDS
+
+from custom_components.sony_projector_extended import DOMAIN
+from custom_components.sony_projector_extended.const import DEFAULT_SOURCES
+from custom_components.sony_projector_extended.select import CalibrationPresetSelect, AspectRatioSelect
 
 _LOGGER = logging.getLogger(__name__)
 

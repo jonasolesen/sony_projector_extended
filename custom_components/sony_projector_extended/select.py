@@ -1,12 +1,12 @@
 import logging
 
-from pysdcp import Projector, ACTIONS, COMMANDS
-
 from homeassistant.components.select import SelectEntity
-from homeassistant.components.sony_projector_extended.const import ASPECT_RATIOS, DOMAIN, CALIBRATION_PRESETS
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
+from pysdcp import Projector, ACTIONS, COMMANDS
+
+from custom_components.sony_projector_extended.const import ASPECT_RATIOS, DOMAIN, CALIBRATION_PRESETS
 
 _LOGGER = logging.getLogger(__name__)
 
